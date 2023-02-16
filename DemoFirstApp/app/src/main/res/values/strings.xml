@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DemoFirstApp</string>
+    <string name="textfield">hello User</string>
+</resources>
