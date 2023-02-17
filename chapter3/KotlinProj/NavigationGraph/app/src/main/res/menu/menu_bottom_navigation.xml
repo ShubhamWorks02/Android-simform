@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/registerFragment"
+        android:enabled="true"
+        android:title="register"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/loginFragment"
+        android:enabled="true"
+        android:title="login"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:enabled="true"
+        android:title="profile"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/mainFragment"
+        android:enabled="true"
+        android:title="main"
+        app:showAsAction="always" />
+
+</menu>

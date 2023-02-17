@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.activityscreens.data.remote.response.UserDetails" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginVertical="@dimen/dp_5"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/card_stroke"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16">
+
+            <ImageView
+                android:id="@+id/img_avtar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:imageUrl="@{data.avatar}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_16"
+                android:text="@{data.firstName+' '+data.lastName}"
+                android:textSize="@dimen/sp_17"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/img_avtar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/item_name_preview" />
+
+            <ImageView
+                android:id="@+id/img_call_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_02"
+                android:layout_marginHorizontal="@dimen/dp_18"
+                app:layout_constraintBottom_toBottomOf="@id/tv_contact_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_contact_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_contact_name"
+                app:srcCompat="@drawable/img_call_dialer" />
+
+
+            <ImageView
+                android:id="@+id/img_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_0"
+                android:layout_marginTop="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_contact_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_contact_name"
+                app:srcCompat="@drawable/img_date" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:text="@{data.email}"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintBottom_toBottomOf="@id/img_date"
+                app:layout_constraintEnd_toStartOf="@id/img_more_dots"
+                app:layout_constraintStart_toEndOf="@+id/img_date"
+                app:layout_constraintTop_toBottomOf="@id/tv_contact_name"
+                tools:text="@string/tv_duration" />
+
+            <ImageView
+                android:id="@+id/img_dialer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_dialer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_more_dots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:src="@drawable/img_more_dots"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_dialer"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_call_duration"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="7dp"-->
+    <!--android:layout_marginTop="2dp"-->
+    <!--android:text="@{data.lastName}"-->
+    <!--android:textSize="12sp"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/img_call_type"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/tv_contact_name"-->
+    <!--tools:text="@string/tv_duration" />-->

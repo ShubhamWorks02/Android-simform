@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WelcomeActivity"
+    android:padding="16dp"
+    android:background="@color/black">
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/img_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_title"
+        android:textColor="@color/title_color"
+        android:layout_marginTop="30dp"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/img_back"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_welcome_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Back 👋"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/app_title"
+        app:layout_constraintStart_toStartOf="@id/app_title"/>
+
+    <TextView
+        android:id="@+id/tv_welcome_msg_suggestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let’s log in. Apply to jobs!"
+        android:textColor="#DADADB"
+        android:layout_marginTop="10dp"
+        android:textSize="14dp"
+        android:textStyle="normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome_msg"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome_msg"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextInputLayout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome_msg_suggestion"
+        android:layout_marginTop="47dp"
+        android:textColorHint="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:drawableStart="@drawable/img_mail"
+            android:drawablePadding="16dp"
+            android:padding="12dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+
+            android:background="@drawable/edit_text_bg" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextInputLayout"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout"
+        android:layout_marginTop="15dp"
+        android:textColorHint="@color/white">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwodEditText"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:drawableStart="@drawable/img_key"
+            android:drawableEnd="@drawable/img_eye"
+            android:drawablePadding="16dp"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_bg"
+            android:inputType="textPassword"
+            android:hint="Password"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:text="Log in"
+        android:layout_marginTop="26dp"
+        app:cornerRadius="22dp"
+        android:backgroundTint="@color/title_color"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTextInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/passwordTextInputLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout"
+        app:layout_constraintHorizontal_bias="0.5"/>
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:layout_marginTop="45dp"
+        android:textColor="@color/title_color"
+        app:layout_constraintTop_toBottomOf="@id/button4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/button4"
+        app:layout_constraintEnd_toEndOf="@id/button4"/>
+
+    <TextView
+        android:id="@+id/tv_login_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or continue with"
+        android:layout_marginTop="35dp"
+        android:textColor="#AFB0B6"
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/button4"
+        app:layout_constraintEnd_toEndOf="@id/button4"/>
+
+    <View
+        android:id="@+id/view_dash_left"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="#AFB0B6"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_login_options"
+        app:layout_constraintTop_toTopOf="@id/tv_login_options"
+        app:layout_constraintBottom_toBottomOf="@id/tv_login_options" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintStart_toEndOf="@id/tv_login_options"
+        android:background="#AFB0B6"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_login_options"
+        app:layout_constraintBottom_toBottomOf="@id/tv_login_options" />
+
+    <ImageView
+        android:id="@+id/img_apple"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="79dp"
+        android:src="@drawable/layer_img"
+        app:layout_constraintBottom_toTopOf="@+id/tv_has_account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_dash_left" />
+
+    <ImageView
+        android:id="@+id/img_google"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/layer_google"
+        app:layout_constraintBottom_toTopOf="@+id/tv_has_account"
+        app:layout_constraintStart_toEndOf="@id/img_apple"
+        app:layout_constraintTop_toBottomOf="@+id/view_dash_left" />
+
+    <ImageView
+        android:id="@+id/img_faceBook"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/layer_facebook"
+        app:layout_constraintBottom_toTopOf="@+id/tv_has_account"
+        app:layout_constraintStart_toEndOf="@id/img_google"
+        app:layout_constraintTop_toBottomOf="@+id/view_dash_left" />
+
+    <TextView
+        android:id="@+id/tv_has_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Haven’t an account? Register"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/title_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

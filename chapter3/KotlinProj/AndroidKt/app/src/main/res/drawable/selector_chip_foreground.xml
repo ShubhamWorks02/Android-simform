@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/img_tick"
+        android:alpha="1"
+        android:state_selected="true"
+        android:state_enabled="true">
+        <shape>
+            <size
+                android:width="20dp"
+                 />
+        </shape>
+    </item>
+    <item
+        android:state_selected="false"
+        android:state_enabled="false" >
+        <shape>
+        <size
+            android:width="20dp"
+             />
+    </shape>
+    </item>
+
+</selector>
