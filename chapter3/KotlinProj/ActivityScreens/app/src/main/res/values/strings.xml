@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ActivityScreens</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_chat">Chat</string>
+    <string name="label_meeting">Meeting</string>
+    <string name="label_call">Call</string>
+    <string name="label_fax">Fax</string>
+    <string name="label_profile">Profile</string>
+    <string name="tv_duration">30min 45sec</string>
+    <string name="tv_date">10 Mar, 8:25 am</string>
+    <string name="tv_heading_transaction">Transactions</string>
+    <string name="chip_all">All</string>
+    <string name="chip_expense">Expense</string>
+    <string name="chip_income">Income</string>
+    <string name="hint_search_here">Search here</string>
+</resources>

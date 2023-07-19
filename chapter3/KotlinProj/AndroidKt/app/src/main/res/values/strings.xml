@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AndroidKt</string>
+    <string name="tv_heading_transaction">Transactions</string>
+    <string name="chip_all">All</string>
+    <string name="chip_expense">Expense</string>
+    <string name="chip_income">Income</string>
+    <string name="hint_search_here">Search here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_wallet_type">Main Wallet</string>
+    <string name="tv_wallet_balance">$45.500,12</string>
+    <string name="tv_wallet_number">444 221 224 ***</string>
+    <string name="tv_heading_wallet">Add Wallet</string>
+    <string name="btn_save">SAVE</string>
+    <string name="tv_heading_home_wallet">Wallet</string>
+    <string name="til_card_num_hint">Card Number</string>
+    <string name="til_card_name_hint">Card Name</string>
+    <string name="til_expire_date_hint">Expire Date</string>
+    <string name="til_cvv_hint">CVV</string>
+    <string name="tv_change_skin">Change skin</string>
+</resources>

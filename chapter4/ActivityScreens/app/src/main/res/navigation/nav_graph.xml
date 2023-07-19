@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/chatFragment">
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.activityscreens.ui.chat.ChatFragment"
+        android:label="@string/label_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/meetingFragment"
+        android:name="com.example.activityscreens.ui.meeting.MeetingFragment"
+        android:label="@string/label_meeting"
+        tools:layout="@layout/fragment_meeting" />
+    <fragment
+        android:id="@+id/callFragment"
+        android:name="com.example.activityscreens.ui.call.CallFragment"
+        android:label="@string/label_call"
+        tools:layout="@layout/fragment_call">
+
+        <action
+            android:id="@+id/action_callFragment_to_showProfileFragment"
+            app:destination="@id/showProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/faxFragment"
+        android:name="com.example.activityscreens.ui.fax.FaxFragment"
+        android:label="@string/label_fax"
+        tools:layout="@layout/fragment_fax" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.activityscreens.ui.profile.ProfileFragment"
+        android:label="@string/label_profile" />
+    <fragment
+        android:id="@+id/showProfileFragment"
+        android:name="com.example.activityscreens.ui.profile.ShowProfileFragment"
+        android:label="@string/label_caller_profile">
+        <argument
+            android:name="userDetails"
+            app:argType="com.example.activityscreens.data.remote.response.UserDetails" />
+    </fragment>
+</navigation>

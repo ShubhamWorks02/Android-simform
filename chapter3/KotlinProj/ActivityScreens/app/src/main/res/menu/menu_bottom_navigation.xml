@@ -1,0 +1,38 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/chatFragment"
+        android:enabled="true"
+        android:icon="@drawable/img_chat"
+        android:title="Chat"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/meetingFragment"
+        android:enabled="true"
+        android:icon="@drawable/img_cam"
+        android:title="Meeting"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/callFragment"
+        android:enabled="true"
+        android:icon="@drawable/img_call"
+        android:title="Call"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/faxFragment"
+        android:enabled="true"
+        android:icon="@drawable/img_print"
+        android:title="Fax"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:enabled="true"
+        android:icon="@drawable/profile_user_svg"
+        android:title="Profile"
+        app:showAsAction="always" />
+
+</menu>

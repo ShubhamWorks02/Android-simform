@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <gradient
+                android:angle="135"
+                android:endColor="#645CA1"
+                android:startColor="#C0B8FF" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/img_waveelements" />
+</layer-list>
