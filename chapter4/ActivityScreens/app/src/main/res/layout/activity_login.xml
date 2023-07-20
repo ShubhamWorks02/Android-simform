@@ -1,0 +1,337 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.activityscreens.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/header"
+                tools:context=".ui.login.LoginActivity">
+
+                <ImageView
+                    android:id="@+id/img_view_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
+                    android:background="@drawable/img_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_view_support"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_marginBottom="@dimen/dp_16"
+            android:src="@drawable/img_support"
+            app:layout_constraintEnd_toStartOf="@id/tv_support"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_support"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/label_support"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_cloud_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_44"
+            android:layout_marginBottom="@dimen/dp_0"
+            android:background="@drawable/img_logoname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_view_back" />
+
+        <TextView
+            android:id="@+id/text_view_below_img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:fontFamily="sans-serif"
+            android:text="@string/label_welcome_intro"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textFontWeight="600"
+            android:textSize="@dimen/sp_26"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_cloud_view"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <TextView
+            android:id="@+id/text_view_below_below_img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_24"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/label_intro_feature"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_below_img"
+            app:layout_constraintWidth_percent="0.65" />
+
+
+                <View
+                    android:id="@+id/login_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="420dp"
+                    android:background="@drawable/rounded_bg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/dp_70"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_view_below_below_img" />
+
+        <TextView
+            android:id="@+id/text_view_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/label_email"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/login_view"
+            app:layout_constraintTop_toTopOf="@id/login_view" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailTextInputLayout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_02"
+            android:hint="@string/label_email"
+            android:paddingStart="@dimen/dp_0"
+            android:paddingEnd="@dimen/dp_16"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="#D5D6DC"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_view_email"
+            app:layout_constraintTop_toBottomOf="@id/text_view_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:alpha="0.5"
+                android:hint="@string/label_hint_email"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/dp_12"
+                android:paddingStart="@dimen/dp_24"
+                android:paddingEnd="@dimen/dp_24"
+                android:text="@={viewmodel.email}"
+                android:textColorHint="@color/txt_hint_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/text_view_passw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_password"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@id/login_view"
+            app:layout_constraintTop_toBottomOf="@id/emailTextInputLayout" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            style="@style/TextInputLayoutStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_02"
+            android:paddingStart="@dimen/dp_0"
+            android:paddingEnd="@dimen/dp_16"
+            app:boxCornerRadiusBottomEnd="10dp"
+            app:boxCornerRadiusBottomStart="10dp"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxStrokeColor="@color/border_color"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_view_passw"
+            app:layout_constraintTop_toBottomOf="@id/text_view_passw"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/passwEditText"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:hint="@string/label_hint_password"
+                android:alpha="0.5"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/dp_24"
+                android:paddingEnd="@dimen/dp_24"
+                android:text="@={viewmodel.password}"
+                android:textColorHint="@color/txt_hint_color" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:text="@string/label_forgot_pass"
+            android:textColor="@color/login_btn_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="@dimen/dp_40"
+            android:backgroundTint="@color/login_btn_color"
+            android:onClick="@{()->viewmodel.login()}"
+            android:text="@string/label_login_btn"
+            android:textSize="@dimen/sp_14"
+            app:cornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordTextInputLayout"
+            app:layout_constraintWidth_percent="0.9" />
+
+        <View
+            android:id="@+id/view_dash_left"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@color/dash_gray_bg"
+            app:layout_constraintBottom_toBottomOf="@id/tv_login_options"
+            app:layout_constraintEnd_toStartOf="@id/tv_login_options"
+            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toTopOf="@id/tv_login_options" />
+
+        <TextView
+            android:id="@+id/tv_login_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_36"
+            android:text="@string/label_login_option"
+            android:textColor="@color/dash_gray_bg"
+            app:layout_constraintEnd_toEndOf="@id/btn_login"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <View
+            android:id="@+id/view_dash_right"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@color/dash_gray_bg"
+            app:layout_constraintBottom_toBottomOf="@id/tv_login_options"
+            app:layout_constraintEnd_toEndOf="@id/btn_login"
+            app:layout_constraintStart_toEndOf="@id/tv_login_options"
+            app:layout_constraintTop_toTopOf="@id/tv_login_options" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/view_google"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:backgroundTint="@color/white"
+                    app:cardElevation="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_dash_left"
+                    app:layout_constraintEnd_toStartOf="@id/view_ms"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:strokeWidth="0dp">
+
+                    <ImageView
+                        android:id="@+id/img_google"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:padding="@dimen/dp_10"
+                        android:src="@drawable/img_google" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/view_ms"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_18"
+            android:backgroundTint="@color/white"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toStartOf="@id/view_apple"
+            app:layout_constraintStart_toEndOf="@id/view_google"
+            app:layout_constraintTop_toBottomOf="@+id/view_dash_left"
+            app:strokeWidth="0dp">
+
+            <ImageView
+                android:id="@+id/img_ms"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:elevation="2dp"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/img_ms" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/view_apple"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="@dimen/dp_22"
+            android:layout_marginTop="@dimen/dp_18"
+            android:backgroundTint="@color/white"
+            app:cardElevation="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view_ms"
+            app:layout_constraintTop_toBottomOf="@+id/view_dash_left"
+            app:strokeWidth="0dp">
+
+            <ImageView
+                android:id="@+id/img_apple"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/layer_apple" />
+
+        </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

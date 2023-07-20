@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="header">#175396</color>
+    <color name="cloud_Bg">#FF339ED6</color>
+    <color name="theme_color">#339ED6</color>
+    <color name="theme_bg">#F6F9FC</color>
+    <color name="theme_bg_opaque">#4DF6F9FC</color>
+    <color name="itemTextCol">#339ED6</color>
+    <color name="border_color">#D5D6DC</color>
+    <color name="txt_hint_color">#474747</color>
+    <color name="login_btn_color">#38A6DE</color>
+    <color name="dash_gray_bg">#AFB0B6</color>
+    <color name="user_listing_bg">#F6F9FC</color>
+    <color name="card_stroke">#ECEEF5</color>
+    <color name="card_bg_tint">#F3F0FB</color>
+    <color name="logout_color_red">#FF455C</color>
+    <color name="subtitle_color">#8083A3</color>>
+
+</resources>

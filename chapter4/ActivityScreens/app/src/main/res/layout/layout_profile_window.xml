@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="windowName"
+            type="String" />
+
+        <import type="android.graphics.Typeface" />
+
+        <variable
+            name="textAttribute"
+            type="String" />
+
+        <variable
+            name="imageId"
+            type="com.example.activityscreens.utils.ImageInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="0.5dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/card_leading_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/dp_16"
+            app:imageBind="@{imageId.id}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_card_option_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/dp_16"
+            android:layout_marginStart="@dimen/dp_10"
+            android:text="@{windowName}"
+            android:textSize="@dimen/sp_17"
+            android:typeface="@{Typeface.defaultFromStyle(textAttribute == `bold` ? Typeface.BOLD : Typeface.NORMAL)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_leading_img"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/label_personal_info" />
+
+        <ImageView
+            android:id="@+id/img_right_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

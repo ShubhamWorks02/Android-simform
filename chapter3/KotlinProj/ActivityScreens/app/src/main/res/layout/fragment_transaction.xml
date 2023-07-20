@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".kt.TransactionFragment">
+
+    <ImageView
+        android:id="@+id/img_back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="28dp"
+        android:src="@drawable/img_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_heading_transaction"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/img_back_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/img_filter"
+        app:layout_constraintStart_toEndOf="@+id/img_back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/img_back_arrow" />
+
+    <ImageView
+        android:id="@+id/img_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="28dp"
+        android:src="@drawable/img_filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/txt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/search_text_bg"
+        android:drawableEnd="@drawable/img_search"
+        android:hint="@string/hint_search_here"
+        android:padding="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_heading" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipgroup_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@id/txt_search"
+        app:layout_constraintTop_toBottomOf="@id/txt_search">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_all"
+            style="@style/ChipStyle"
+            android:layout_marginEnd="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_all" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_expense"
+            style="@style/ChipStyle"
+            android:checked="false"
+            app:checkedIconTint="@color/white"
+            android:layout_marginEnd="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_expense" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_income"
+            style="@style/ChipStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_income" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_transaction_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/chipgroup_filter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_transaction"
+        android:layout_marginTop="12dp"
+        android:paddingTop="24dp"
+        android:background="#F7F5FE" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

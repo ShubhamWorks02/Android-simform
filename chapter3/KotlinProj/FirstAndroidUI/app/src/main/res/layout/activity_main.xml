@@ -1,0 +1,182 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#0D0F1E">
+
+    <View
+        android:id="@+id/bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/img_successful"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_spotify" />
+
+    <ImageView
+        android:id="@+id/img_successful"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btn_track_job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_confirmation"
+        app:srcCompat="@drawable/img" />
+
+    <TextView
+        android:id="@+id/tv_success"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Successful"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_successful" />
+
+    <TextView
+        android:id="@+id/tv_success_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="You’ve successfully applied to Spotify UX intern role. You can see the job status from Application"
+        android:textSize="16sp"
+        android:textColor="#95969D"
+        android:textStyle="normal"
+        android:textAlignment="center"
+        app:flow_horizontalBias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_success"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_track_job"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#0E9D57"
+        android:text="Track Job"
+        app:layout_constraintBottom_toTopOf="@id/btn_browse_job"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_browse_job"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:text="Browse Job"
+        app:strokeColor="#0E9D57"
+        app:strokeWidth="1dp"
+        app:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_back"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="12dp"
+        android:contentDescription="Back Button"
+        />
+
+    <TextView
+        android:id="@+id/tv_confirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmation"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_back"
+        app:layout_constraintBottom_toBottomOf="@id/btn_back"
+        app:flow_horizontalBias="0.5"
+        />
+
+    <ImageView
+        android:id="@+id/img_spotify"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:srcCompat="@drawable/img_spotify" />
+
+    <TextView
+        android:id="@+id/tv_opening_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UX intern"
+        android:textSize="15sp"
+        android:textColor="#DADADB"
+        android:letterSpacing="-0.01"
+        app:layout_constraintTop_toTopOf="@id/img_spotify"
+        app:layout_constraintStart_toEndOf="@id/img_spotify"
+        android:layout_marginLeft="16dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spotify"
+        android:textSize="13sp"
+        android:textColor="#DADADB"
+        android:textStyle="normal"
+        android:letterSpacing="-0.01"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="@id/img_spotify"
+        app:layout_constraintStart_toStartOf="@+id/tv_opening_name"
+        />
+
+    <TextView
+        android:id="@+id/tv_opening_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:alpha="0.5"
+        android:letterSpacing="-0.01"
+        android:text="Los Angeles,US"
+        android:textColor="#DADADB"
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_company_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_opening_name" />
+
+    <TextView
+        android:id="@+id/tv_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.5"
+        android:letterSpacing="-0.01"
+        android:text="$88,000/y"
+        android:textColor="#DADADB"
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/tv_company_name"
+        app:layout_constraintEnd_toEndOf="@id/tv_opening_place"
+        app:layout_constraintTop_toTopOf="@+id/tv_opening_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
