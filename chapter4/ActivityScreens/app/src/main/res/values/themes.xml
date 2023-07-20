@@ -40,8 +40,8 @@
     </style>
 
     <style name="Theme.AppCompat.CustomSplashScreenTheme" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/app_logo</item>
+        <item name="windowSplashScreenBackground">@color/header</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/launcher_app_logo</item>
         <item name="windowSplashScreenAnimationDuration">0</item>
         <item name="postSplashScreenTheme">@style/Theme.ActivityScreens</item>
     </style>

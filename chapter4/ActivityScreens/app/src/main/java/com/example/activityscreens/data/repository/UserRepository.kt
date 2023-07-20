@@ -13,6 +13,7 @@ import com.example.activityscreens.data.remote.response.Support
 import com.example.activityscreens.data.remote.response.User
 import com.example.activityscreens.data.remote.response.UserResponse
 import com.example.activityscreens.utils.SharedPreferenceHelper
+import com.example.activityscreens.utils.Urls
 import com.example.activityscreens.utils.onError
 import com.example.activityscreens.utils.onException
 import com.example.activityscreens.utils.onSuccess
@@ -69,10 +70,9 @@ class UserRepositoryImpl @Inject constructor(
         if (cachedUsersTotal.isNotEmpty() && isApiCallFinished) {
             val users = cachedUsersTotal.map { CachedUserToUserMapper.map(it) }
             val support = Support(
-                "https://reqres.in/#support-heading",
-                "To keep ReqRes free, contributions towards server costs are appreciated!"
+                Urls.supportUrl,
+                Urls.supportText
             )
-
             return ApiSuccess(User(page, perPage, 12, 1, users, support))
         }
         return result

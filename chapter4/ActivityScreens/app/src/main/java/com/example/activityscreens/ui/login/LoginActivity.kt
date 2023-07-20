@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
 import com.example.activityscreens.R
 import com.example.activityscreens.databinding.ActivityLoginBinding
@@ -21,13 +22,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SharedPreferenceHelper.initialize(this)
+        installSplashScreen()
+        checkUserState()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
         viewModel.apply {
             message.observe(this@LoginActivity) { message ->
-                Toast.makeText(this@LoginActivity, "$message", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
             }
             isValidated.observe(this@LoginActivity) {
                 if (it) startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
@@ -43,8 +46,16 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        KeyboardHelper.setupKeyboardHiding(window.decorView.rootView, this)
+        KeyboardHelper.setupKeyboardHiding(binding.scrollView, this)
+    }
 
+    private fun checkUserState() {
+        val isSignedIn = SharedPreferenceHelper.getUserState("Logged", false)
+        if (isSignedIn) {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 }

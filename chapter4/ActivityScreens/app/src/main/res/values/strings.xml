@@ -36,4 +36,5 @@
     <string name="label_status">Status</string>
     <string name="label_available">Available</string>
     <string name="label_personal_info">Personal info</string>
+    <string name="label_no_data">No Data Found</string>
 </resources>

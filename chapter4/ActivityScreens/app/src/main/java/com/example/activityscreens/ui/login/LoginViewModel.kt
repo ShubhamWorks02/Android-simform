@@ -38,20 +38,31 @@ class LoginViewModel @Inject constructor(private val repository: UserRepository)
                 )
                 response.apply {
                     onSuccess {
-                        isValidated.value = true
-                        isTokenArrived.value = true
+                        if (it.token.isNotEmpty()) {
+                            isValidated.value = true
+                            isTokenArrived.value = true
+                        } else {
+
+                        }
                     }
                     onError { code, message ->
                         Log.d("Code", "$code: Error occurred with description ($message)")
                         isValidated.value = false
+                        isTokenArrived.value = false
                     }
                     onException {
                         isValidated.value = false
+                        isTokenArrived.value = false
                     }
                 }
             }
             return
         }
         message.postValue("Please Fill above details")
+    }
+
+    private fun changeValidationValue(isValid: Boolean, tokenized: Boolean) {
+        isValidated.value = isValid
+        isTokenArrived.value = tokenized
     }
 }

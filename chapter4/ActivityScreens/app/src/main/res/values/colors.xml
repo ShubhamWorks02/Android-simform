@@ -6,6 +6,7 @@
     <color name="cloud_Bg">#FF339ED6</color>
     <color name="theme_color">#339ED6</color>
     <color name="theme_bg">#F6F9FC</color>
+    <color name="theme_bg_opaque">#4DF6F9FC</color>
     <color name="itemTextCol">#339ED6</color>
     <color name="border_color">#D5D6DC</color>
     <color name="txt_hint_color">#474747</color>

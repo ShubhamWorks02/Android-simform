@@ -12,6 +12,10 @@
         <variable
             name="textAttribute"
             type="String" />
+
+        <variable
+            name="imageId"
+            type="com.example.activityscreens.utils.ImageInfo" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +30,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="@dimen/dp_16"
-            android:src="@drawable/img_tick_done"
+            app:imageBind="@{imageId.id}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
