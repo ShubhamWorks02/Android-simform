@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(context: Context): AppDatabase =
             instance ?: synchronized(this) {
                 instance ?: buildDatabase(context).also { instance = it }
-            }
+            } // used to get idea of locking
 
         private fun buildDatabase(context: Context): AppDatabase =
             Room.databaseBuilder(

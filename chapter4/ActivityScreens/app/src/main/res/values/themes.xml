@@ -46,5 +46,7 @@
         <item name="postSplashScreenTheme">@style/Theme.ActivityScreens</item>
     </style>
 
-
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/black</item>
+    </style>
 </resources>

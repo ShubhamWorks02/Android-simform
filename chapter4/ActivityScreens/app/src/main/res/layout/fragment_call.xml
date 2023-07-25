@@ -28,7 +28,11 @@
             android:drawableEnd="@drawable/img_search"
             android:hint="@string/hint_search_here"
             android:lines="1"
+
+            android:imeOptions="actionSearch"
             android:padding="@dimen/dp_18"
+            android:inputType="text"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
