@@ -1,6 +1,5 @@
 package com.example.activityscreens.ui.login
 
-import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,10 +24,19 @@ class LoginViewModel @Inject constructor(private val repository: UserRepository)
 
     fun login() {
         val emailValue = email.value
-        if (!emailValue.isNullOrEmpty() && !password.value.isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(
+        if (emailValue.isNullOrEmpty()) {
+            message.postValue("Your email is empty")
+            return
+        } else if (password.value.isNullOrEmpty()) {
+            message.postValue("Your password is empty")
+            return
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(
                 emailValue.toString()
             ).matches()
         ) {
+            message.postValue("Email is not valid")
+            return
+        } else {
             viewModelScope.launch {
                 val response = repository.validateUser(
                     UserRequest(
@@ -39,29 +47,23 @@ class LoginViewModel @Inject constructor(private val repository: UserRepository)
                 response.apply {
                     onSuccess {
                         if (it.token.isNotEmpty()) {
-                            isValidated.value = true
-                            isTokenArrived.value = true
+                            changeValidationStatesValue(true, true)
                         } else {
-
+                            changeValidationStatesValue(false, false)
                         }
                     }
-                    onError { code, message ->
-                        Log.d("Code", "$code: Error occurred with description ($message)")
-                        isValidated.value = false
-                        isTokenArrived.value = false
+                    onError { _, _ ->
+                        changeValidationStatesValue(false, false)
                     }
                     onException {
-                        isValidated.value = false
-                        isTokenArrived.value = false
+                        changeValidationStatesValue(false, false)
                     }
                 }
             }
-            return
         }
-        message.postValue("Please Fill above details")
     }
 
-    private fun changeValidationValue(isValid: Boolean, tokenized: Boolean) {
+    private fun changeValidationStatesValue(isValid: Boolean, tokenized: Boolean) {
         isValidated.value = isValid
         isTokenArrived.value = tokenized
     }

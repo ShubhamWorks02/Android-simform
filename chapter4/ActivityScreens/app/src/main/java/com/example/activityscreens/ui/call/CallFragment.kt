@@ -2,7 +2,11 @@ package com.example.activityscreens.ui.call
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +20,9 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.activityscreens.databinding.FragmentCallBinding
+import com.example.activityscreens.utils.ConnectionManager
 import com.example.activityscreens.utils.KeyboardHelper
+import com.example.activityscreens.utils.NetworkUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +31,7 @@ class CallFragment : Fragment() {
     private lateinit var binding: FragmentCallBinding
     private lateinit var adapter: UserAdapter
     private var searchedQuery = ""
+    private val classTag = "CallFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +50,8 @@ class CallFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        checkNetworkConnection()
+
         binding.apply {
             rvContactList.adapter = adapter
             edtSearch.doOnTextChanged { text, _, _, _ ->
@@ -57,6 +66,9 @@ class CallFragment : Fragment() {
                         return@doOnTextChanged
                     }
                 }
+            }
+            edtSearch.setOnFocusChangeListener { v, hasFocus ->
+                if (!hasFocus) KeyboardHelper.setupKeyboardHiding(v, requireActivity())
             }
         }
 
@@ -86,9 +98,7 @@ class CallFragment : Fragment() {
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
+            ): Boolean = false
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
@@ -123,8 +133,51 @@ class CallFragment : Fragment() {
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(binding.rvContactList)
 
-        KeyboardHelper.setupKeyboardHiding(view, requireActivity())
+    }
+
+    private fun checkNetworkConnection() {
+        if (!NetworkUtil.isNetworkConnected) showInternetConnectionLost()
+    }
+
+    private fun showInternetConnectionLost() {
+
+        try {
+            val dialog = AlertDialog.Builder(
+                requireActivity(),
+                android.R.style.Theme_Material_Light_Dialog_Alert
+            ).create()
+
+            dialog.setTitle("No Internet Connection")
+            dialog.setMessage("Please make sure your Wi-Fi or mobile data is turned on, then try again.")
+            dialog.setCancelable(false)
+            dialog.setButton(
+                DialogInterface.BUTTON_POSITIVE,
+                "OK",
+                DialogInterface.OnClickListener { _, _ -> })
+            dialog.setButton(
+                DialogInterface.BUTTON_NEGATIVE,
+                "Retry",
+                DialogInterface.OnClickListener { _, _ ->
+
+                    val hThread = HandlerThread("connectivity")
+                    hThread.start()
+                    Handler(hThread.looper).post {
+                        if (ConnectionManager.hasInternetConnected(requireActivity())) {
+                            Handler(Looper.getMainLooper()).post {
+                                dialog.dismiss()
+                            }
+                        } else {
+                            Handler(Looper.getMainLooper()).postDelayed(
+                                { showInternetConnectionLost() },
+                                500
+                            )
+                        }
+                    }
+                })
+            dialog.show()
+        } catch (e: Exception) {
+            Log.e(classTag, e.toString())
+        }
     }
 
 }
-

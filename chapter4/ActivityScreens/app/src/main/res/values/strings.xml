@@ -37,4 +37,6 @@
     <string name="label_available">Available</string>
     <string name="label_personal_info">Personal info</string>
     <string name="label_no_data">No Data Found</string>
+    <string name="channel_description">Shubham is calling you</string>
+    <string name="channel_name">Call</string>
 </resources>
